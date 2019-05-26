@@ -1,0 +1,25 @@
+package ip.internet.apprentissage.socket.com;
+
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
+
+public class Interfaces {
+
+   public static void main(String[] args) {
+      
+      try {         
+         //Nous spécifions que la réponse devra se faire par ce chemin
+         InetAddress lo = InetAddress.getByName("192.168.0.1");
+         
+         //Le fait de mettre 0 dans le numéro de port de réponse
+         //informe que n'importe quel numéro est accepté
+         Socket soc = new Socket("www.openclassrooms.com", 80, lo, 0);         
+      }catch (UnknownHostException e) {
+         e.printStackTrace();
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
+   }
+}
